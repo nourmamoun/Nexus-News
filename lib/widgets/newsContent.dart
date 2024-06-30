@@ -15,6 +15,7 @@ final height;
     return Padding(
       padding: const EdgeInsets.only(bottom: 5,left: 2,top: 8,right: 2),
       child: Container(
+        padding:const EdgeInsets.all(6),
                       decoration:const BoxDecoration(
                         color: Colors.white,
                         boxShadow: [BoxShadow(

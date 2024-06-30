@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:nexus_news2/helper/newsHelper.dart';
 import 'package:nexus_news2/model/categoriesModel.dart';
-import 'package:nexus_news2/pages/bussinessPage.dart';
-import 'package:nexus_news2/pages/entertainmentPage.dart';
+
+import 'package:nexus_news2/pages/categoryPart.dart';
+
 import 'package:nexus_news2/pages/livePage.dart';
-import 'package:nexus_news2/pages/sportsPage.dart';
+
 import 'package:nexus_news2/widgets/categoriesScrollbar.dart';
 import 'package:nexus_news2/widgets/newsContent.dart';
 
@@ -31,8 +32,10 @@ bool _isLoading = true;
 getNews() async{
   News newsData = News();
   await newsData.getNews();
-  articles=newsData.datatobeSavedIn;
-  _isLoading = false;
+ setState(() {
+      articles = newsData.datatobeSavedIn;
+      _isLoading = false; 
+    });
 }
 
 @override
@@ -68,13 +71,27 @@ void initState(){
                   CategoriesContainer(
                     width: size.width * 0.35,
                     height: size.height * 0.1,
-                    text: 'Sports',
+                    text: 'Top News',
                     size: size.width * 0.05,
                     isSelected: _selectedIndex == 0,
                     ontap: () {
                       _onCategoryTap(0);
                        Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>  SportsPage()));
+                    builder: (context) =>  CategorySegments(category: 'sports', categoryTitle: 'Sports')));
+                    },
+                    widthOfBorder: size.width * 0.02,
+                  ),
+                  CategoriesContainer(
+                    width: size.width * 0.35,
+                    height: size.height * 0.1,
+                    text: 'Sports',
+                    size: size.width * 0.05,
+                    isSelected: _selectedIndex == 1,
+                    ontap: () {
+                      _onCategoryTap(1);
+                       Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>  CategorySegments(category: 'sports', categoryTitle: 'Sports')));
+                    _onCategoryTap(0);
                     },
                     widthOfBorder: size.width * 0.02,
                   ),
@@ -83,11 +100,12 @@ void initState(){
                     height: size.height * 0.1,
                     text: 'Bussiness',
                     size: size.width * 0.05,
-                    isSelected: _selectedIndex == 1,
+                    isSelected: _selectedIndex == 2,
                     ontap: () {
-                       _onCategoryTap(1);
+                       _onCategoryTap(2);
                         Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>  BussinessPage()));
+                    builder: (context) =>  CategorySegments(category: 'business',categoryTitle: 'Bussiness',)));
+                    _onCategoryTap(0);
                     },
                     widthOfBorder: size.width * 0.02,
                   ),
@@ -96,11 +114,28 @@ void initState(){
                     height: size.height * 0.1,
                     text: 'Entertainment',
                     size: size.width * 0.05,
-                    isSelected: _selectedIndex == 2,
+                    isSelected: _selectedIndex == 3,
                     ontap: () {
-                      _onCategoryTap(2);
+                      _onCategoryTap(3);
                        Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>  EntertainmentPage()));
+                    builder: (context) =>  CategorySegments(category: 'entertainment', categoryTitle: 'Entertainment')));
+                        _onCategoryTap(0);
+
+                    },
+                    widthOfBorder: size.width * 0.02,
+                  ),
+                  CategoriesContainer(
+                    width: size.width * 0.35,
+                    height: size.height * 0.1,
+                    text: 'Health',
+                    size: size.width * 0.05,
+                    isSelected: _selectedIndex == 4,
+                    ontap: () {
+                      _onCategoryTap(4);
+                       Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>  CategorySegments(category: 'health', categoryTitle: 'Health')));
+                        _onCategoryTap(0);
+
                     },
                     widthOfBorder: size.width * 0.02,
                   ),
@@ -109,11 +144,13 @@ void initState(){
                     height: size.height * 0.1,
                     text: 'Live',
                     size: size.width * 0.05,
-                    isSelected: _selectedIndex == 3,
+                    isSelected: _selectedIndex == 5,
                     ontap: () {
-                      _onCategoryTap(3);
+                      _onCategoryTap(5);
                       Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) =>  LivePage()));
+                        _onCategoryTap(0);
+
                     },
                     widthOfBorder: size.width * 0.02,
                   ),
@@ -122,15 +159,20 @@ void initState(){
           
               ),
              ),
-            Container(
-                height: size.height * 2, // Set a fixed height for the list
-                child: _isLoading ? Center(
-
+            SizedBox(
+                height: size.height * 2, 
+                child: _isLoading ? const Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding:  EdgeInsets.all(10.0),
                       child: CircularProgressIndicator(
                         color: Colors.red,
                         
                       ),
-                    )
+                    ),
+                  ],
+                )
                     
                     : ListView.builder(
                       

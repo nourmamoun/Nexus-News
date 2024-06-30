@@ -36,7 +36,7 @@ class CategoryNews{
 List<ArticleModel> datatobeSavedIn =[];
 
 Future<void> getNews(String category) async {
-  var response = await get(Uri.parse('http://newsapi.org/v2/top-headlines?country=us&category-$category&apiKey=64ebecb1e44b48489fb4b4d356062aac'));
+  var response = await get(Uri.parse('https://newsapi.org/v2/top-headlines?country=us&category=$category&apiKey=64ebecb1e44b48489fb4b4d356062aac'));
   var jsonData = jsonDecode(response.body);
 
 
