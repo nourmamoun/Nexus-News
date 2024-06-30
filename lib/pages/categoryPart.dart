@@ -1,5 +1,3 @@
-//import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:nexus_news2/helper/newsHelper.dart';
 import 'package:nexus_news2/model/categoriesModel.dart';
