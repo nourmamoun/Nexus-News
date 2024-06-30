@@ -17,7 +17,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-   int _selectedIndex = -1;
+   int _selectedIndex = 0;
 
 void _onCategoryTap(int index) {
     setState(() {
@@ -70,7 +70,7 @@ void initState(){
                 children: [
                   CategoriesContainer(
                     width: size.width * 0.35,
-                    height: size.height * 0.1,
+                    height: size.height * 0.2,
                     text: 'Top News',
                     size: size.width * 0.05,
                     isSelected: _selectedIndex == 0,
@@ -83,7 +83,7 @@ void initState(){
                   ),
                   CategoriesContainer(
                     width: size.width * 0.35,
-                    height: size.height * 0.1,
+                    height: size.height * 0.2,
                     text: 'Sports',
                     size: size.width * 0.05,
                     isSelected: _selectedIndex == 1,
@@ -97,7 +97,7 @@ void initState(){
                   ),
                   CategoriesContainer(
                     width: size.width * 0.35,
-                    height: size.height * 0.1,
+                    height: size.height * 0.2,
                     text: 'Bussiness',
                     size: size.width * 0.05,
                     isSelected: _selectedIndex == 2,
@@ -111,7 +111,7 @@ void initState(){
                   ),
                   CategoriesContainer(
                     width: size.width * 0.35,
-                    height: size.height * 0.1,
+                    height: size.height * 0.2,
                     text: 'Entertainment',
                     size: size.width * 0.05,
                     isSelected: _selectedIndex == 3,
@@ -126,7 +126,7 @@ void initState(){
                   ),
                   CategoriesContainer(
                     width: size.width * 0.35,
-                    height: size.height * 0.1,
+                    height: size.height * 0.2,
                     text: 'Health',
                     size: size.width * 0.05,
                     isSelected: _selectedIndex == 4,
@@ -141,7 +141,7 @@ void initState(){
                   ),
                   CategoriesContainer(
                     width: size.width * 0.35,
-                    height: size.height * 0.1,
+                    height: size.height * 0.2,
                     text: 'Live',
                     size: size.width * 0.05,
                     isSelected: _selectedIndex == 5,
