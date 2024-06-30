@@ -34,7 +34,8 @@ class LivePage extends StatelessWidget {
           child: Column(
             children: [
               ChannelsContainer(
-                size: size, 
+                width: size.width, 
+                height: size.height,
                 text: 'BBC News',
                 ontap: (){
                    Navigator.of(context).push(MaterialPageRoute(
@@ -42,7 +43,8 @@ class LivePage extends StatelessWidget {
 
                 },),
               ChannelsContainer(
-                size: size, 
+                width: size.width, 
+                height: size.height,
                 text: 'ABC News',
                 ontap: (){
                   Navigator.of(context).push(MaterialPageRoute(
@@ -50,7 +52,8 @@ class LivePage extends StatelessWidget {
 
                 }),
               ChannelsContainer(
-                size: size, 
+               width: size.width, 
+                height: size.height, 
               text: 'CBS News'
               ,ontap: (){
                     Navigator.of(context).push(MaterialPageRoute(
@@ -59,21 +62,24 @@ class LivePage extends StatelessWidget {
 
               }),
                  ChannelsContainer(
-                size: size,
+                width: size.width, 
+                height: size.height,
                  text: 'NBC News',
                  ontap: (){
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) =>  ChannelPage(channel: 'NBC-news', textTitle: 'NBC News')));
                  }),
                   ChannelsContainer(
-                size: size,
+                width: size.width, 
+                height: size.height,
                  text: 'USA Today',
                  ontap: (){
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) =>  ChannelPage(channel: 'usa-today', textTitle: 'USA Today')));
                  }),
                  ChannelsContainer(
-                size: size,
+                width: size.width, 
+                height: size.height,
                  text: 'Ars Technica',
                  ontap: (){
                   Navigator.of(context).push(MaterialPageRoute(
