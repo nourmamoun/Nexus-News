@@ -62,3 +62,35 @@ Future<void> getNews(String category) async {
 
 
 }}
+
+class ChannelsNews{
+
+List<ArticleModel> datatobeSavedIn =[];
+
+Future<void> getNews(String channel) async {
+  var response = await get(Uri.parse('https://newsapi.org/v2/top-headlines?sources=$channel&apiKey=64ebecb1e44b48489fb4b4d356062aac'));
+  var jsonData = jsonDecode(response.body);
+
+
+  if (jsonData['status'] == 'ok') {
+      jsonData['articles'].forEach((element) {
+        if(element['urlToImage']!= null && element['description']!= null){
+          ArticleModel articleModel = ArticleModel(
+            title: element['title'],
+            urlToImage: element['urlToImage'],
+            description: element['description'],
+            url: element['url'],
+            publishedAt: element['publishedAt']
+          );
+
+          datatobeSavedIn.add(articleModel);
+        }
+      });
+
+  
+
+}
+
+
+
+}}

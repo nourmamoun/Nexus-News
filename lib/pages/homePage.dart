@@ -142,13 +142,13 @@ void initState(){
                   CategoriesContainer(
                     width: size.width * 0.35,
                     height: size.height * 0.2,
-                    text: 'Live',
+                    text: 'Channels',
                     size: size.width * 0.05,
                     isSelected: _selectedIndex == 5,
                     ontap: () {
                       _onCategoryTap(5);
                       Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>  LivePage()));
+                    builder: (context) =>  const LivePage()));
                         _onCategoryTap(0);
 
                     },
