@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-   int _selectedIndex = 0;
+   int _selectedIndex = -1;
 
 void _onCategoryTap(int index) {
     setState(() {
@@ -26,11 +26,13 @@ void _onCategoryTap(int index) {
   }
 
 List<ArticleModel> articles = [];
+bool _isLoading = true;
 
 getNews() async{
   News newsData = News();
   await newsData.getNews();
   articles=newsData.datatobeSavedIn;
+  _isLoading = false;
 }
 
 @override
@@ -122,14 +124,20 @@ void initState(){
              ),
             Container(
                 height: size.height * 2, // Set a fixed height for the list
-                child: articles.isEmpty
-                    ? Center(child: CircularProgressIndicator(
-                      color: Colors.red,
-                    ))
+                child: _isLoading ? Center(
+
+                      child: CircularProgressIndicator(
+                        color: Colors.red,
+                        
+                      ),
+                    )
+                    
                     : ListView.builder(
+                      
                         itemCount: articles.length,
                         itemBuilder: (context, index) {
                           return NewsContent(
+                            height: size.height,
                             width: size.width,
                             tite: articles[index].title,
                             uploadedAt: articles[index].publishedAt,
