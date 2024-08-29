@@ -1,4 +1,4 @@
-# nexus_news2
+# Nexus News
 
 Nexus News is an Application for displaying exclusive and live news from different categories and channels.
 
