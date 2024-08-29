@@ -1,16 +1,22 @@
 # nexus_news2
 
-A new Flutter project.
+Nexus News is an Application for displaying exclusive and live news from different categories and channels.
 
-## Getting Started
+***The Nexus News Application Contains:-***
 
-This project is a starting point for a Flutter application.
+**1- Responsive UI Design:**
 
-A few resources to get you started if this is your first Flutter project:
+    -Compatible with different software platforms such as mobile applications, OS smartwatches, and TV, ready to use in any of them.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+**2- News API Integration:**
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    -Used News API to fetch news categories and channels.
+
+
+
+
+
+
+
+
+
